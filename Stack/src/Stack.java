@@ -1,5 +1,5 @@
 public class Stack implements IStack{
-    Object[] stack = new Object[2147483647];
+    Object[] stack = new Object[214748364];
     int cont = 0;
 
     @Override

@@ -25,4 +25,32 @@ public class Main {
         // 6. size and isEmpty
         System.out.println("Size: " + s.size() + " Empty: " + s.isEmpty());
     }
+
+    private static void tryMethods(Stack s){
+        //try the push method
+        s.push(1);
+        s.push(2.7);
+        s.push('h');
+        s.push("Mariangela Fantozzi");
+        s.push(true);
+
+        //try the size method
+        s.size();
+
+        //try the pop method
+        s.pop();
+        s.size();
+
+        //try the top method
+        System.out.println(s.top());
+
+        //try the isEmpty method
+        System.out.println(s.isEmpty());
+        s.pop();
+        s.pop();
+        s.pop();
+        s.pop();
+        System.out.println(s.isEmpty());
+    }
+
 }
