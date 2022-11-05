@@ -2,10 +2,17 @@ public class Main {
     public static void main(String[] args) {
         Stack s =  new Stack();
         // initialization of `q` and `s`
-        exampleStack(s);
+        //exampleStack(s);
+        tryMethods(s);
     }
 
-    private static void exampleStack(Stack s) {
+    /*
+
+    MANCA FARE IL METODO CHE TOGLE LE CELLE VUOTE
+
+    */
+
+    private static void exampleStack(Stack s) { // base example
         // 1. Add three strings
         s.push("Alice");
         s.push("Bob");
@@ -26,31 +33,34 @@ public class Main {
         System.out.println("Size: " + s.size() + " Empty: " + s.isEmpty());
     }
 
-    private static void tryMethods(Stack s){
+    private static void tryMethods(Stack s){ // try all the stack methods
         //try the push method
+        s.push(true);
         s.push(1);
         s.push(2.7);
         s.push('h');
         s.push("Mariangela Fantozzi");
-        s.push(true);
 
         //try the size method
-        s.size();
+        System.out.println(s.size());
 
         //try the pop method
-        s.pop();
-        s.size();
+        System.out.println(s.pop());
+        System.out.println(s.size());
 
         //try the top method
         System.out.println(s.top());
 
         //try the isEmpty method
         System.out.println(s.isEmpty());
-        s.pop();
-        s.pop();
-        s.pop();
-        s.pop();
+        System.out.println(s.pop());
+        System.out.println(s.pop());
+        System.out.println(s.pop());
+        System.out.println(s.pop());
         System.out.println(s.isEmpty());
     }
 
+    private static void tryLimits(Stack s){
+
+    }
 }
