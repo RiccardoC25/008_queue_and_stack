@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        Stack s =  new Stack();
+        Stack s = new Stack();
         // initialization of `q` and `s`
         //exampleStack(s);
         tryMethods(s);
@@ -33,19 +33,25 @@ public class Main {
         System.out.println("Size: " + s.size() + " Empty: " + s.isEmpty());
     }
 
-    private static void tryMethods(Stack s){ // try all the stack methods
+    private static void tryMethods(Stack s) { // try all the stack methods
         //try the push method
         s.push(true);
+        //s.sizeControl();
         s.push(1);
+        //s.sizeControl();
         s.push(2.7);
+        //s.sizeControl();
         s.push('h');
+        //s.sizeControl();
         s.push("Mariangela Fantozzi");
+        //s.sizeControl();
 
         //try the size method
         System.out.println(s.size());
 
         //try the pop method
         System.out.println(s.pop());
+        //s.sizeControl();
         System.out.println(s.size());
 
         //try the top method
@@ -54,13 +60,39 @@ public class Main {
         //try the isEmpty method
         System.out.println(s.isEmpty());
         System.out.println(s.pop());
+        //s.sizeControl();
         System.out.println(s.pop());
+        //s.sizeControl();
         System.out.println(s.pop());
+        //s.sizeControl();
         System.out.println(s.pop());
+        //s.sizeControl();
         System.out.println(s.isEmpty());
     }
 
-    private static void tryLimits(Stack s){
+    private static void tryVoid(Stack s) {
+        //try methods with null parameters
+        //try the size method
+        System.out.println(s.size());
 
+        //try the pop method
+        System.out.println(s.pop());
+        //s.sizeControl();
+        System.out.println(s.size());
+
+        //try the top method
+        System.out.println(s.top());
+
+        //try the isEmpty method
+        System.out.println(s.isEmpty());
+        System.out.println(s.pop());
+        //s.sizeControl();
+        System.out.println(s.pop());
+        //s.sizeControl();
+        System.out.println(s.pop());
+        //s.sizeControl();
+        System.out.println(s.pop());
+        //s.sizeControl();
+        System.out.println(s.isEmpty());
     }
 }
