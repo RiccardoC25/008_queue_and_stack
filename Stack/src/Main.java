@@ -1,16 +1,15 @@
+import static java.lang.Thread.sleep;
+
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Stack s = new Stack();
+        StopwatchPro stopwatch = new StopwatchPro("c1");
         // initialization of `q` and `s`
         //exampleStack(s);
-        tryMethods(s);
+        //tryMethods(s);
+        //tryVoid(s);
+        //performanceTest(s, stopwatch);
     }
-
-    /*
-
-    MANCA FARE IL METODO CHE TOGLE LE CELLE VUOTE
-
-    */
 
     private static void exampleStack(Stack s) { // base example
         // 1. Add three strings
@@ -94,5 +93,81 @@ public class Main {
         System.out.println(s.pop());
         //s.sizeControl();
         System.out.println(s.isEmpty());
+    }
+
+    public static void performanceTest(Stack s, StopwatchPro stopwatch) throws InterruptedException {
+        //test the performance of the push operation of 100000 elements in an empty stack
+        System.out.println("Appending 100000 elements in an empty stack:");
+        stopwatch.start();
+        System.out.print("\nSTART: ");
+        stopwatch.getTime();
+        System.out.println();
+        for(int i = 0; i < 100000; i++){
+            s.push(i);
+        }
+        System.out.print("END: ");
+        stopwatch.getTime();
+        System.out.println();
+        stopwatch.stop();
+        stopwatch.reset();
+
+        //eliminate 50000 elements for the next test
+        for (int i = 0; i < 50000; i++){
+            s.pop();
+        }
+
+        //test the performance of the pop operation of 50000 elements in a stack of 50000 elements
+        System.out.println("Removing 50000 elements from a stack of 50000 elements: ");
+        stopwatch.start();
+        System.out.print("\nSTART: ");
+        stopwatch.getTime();
+        System.out.println();
+        for(int i = 0; i < 50000; i++){
+            s.pop();
+        }
+        System.out.print("END: ");
+        stopwatch.getTime();
+        System.out.println();
+        stopwatch.stop();
+        stopwatch.reset();
+
+        //append 50000 elements for the next test
+        for (int i = 0; i < 50000; i++){
+            s.push(i);
+        }
+
+        //test the performance of the push operation of 50000 elements in a stack of 50000 elements
+        System.out.println("Appending 50000 in a stack of 50000 elements: ");
+        stopwatch.start();
+        System.out.print("\nSTART: ");
+        stopwatch.getTime();
+        System.out.println();
+        for(int i = 0; i < 50000; i++){
+            s.push(i);
+        }
+        System.out.print("END: ");
+        stopwatch.getTime();
+        System.out.println();
+        stopwatch.stop();
+        stopwatch.reset();
+
+        //test the performance of the pop operation of 100000 elements in a stack of 100000 elements
+        sleep(2000);
+        System.out.println("Removing 100000 elements from a stack of 100000 elements: ");
+        stopwatch.start();
+        System.out.print("\nSTART: ");
+        stopwatch.getTime();
+        System.out.println();
+        for(int i = 0; i < 100000; i++){
+            s.pop();
+        }
+        System.out.print("END: ");
+        stopwatch.getTime();
+        System.out.println();
+        stopwatch.stop();
+        stopwatch.reset();
+
+
+        System.out.println("Is Empty: "+s.isEmpty());
     }
 }
