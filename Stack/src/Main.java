@@ -2,9 +2,12 @@ import static java.lang.Thread.sleep;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
+        //initialization of the Stack object and the StopwatchPro object
         Stack s = new Stack();
         StopwatchPro stopwatch = new StopwatchPro("c1");
-        // initialization of `q` and `s`
+
+            //The calls of the methods (Better call one per time)
+        //initialization of `q` and `s`
         //exampleStack(s);
         //tryMethods(s);
         //tryVoid(s);
@@ -16,18 +19,23 @@ public class Main {
         s.push("Alice");
         s.push("Bob");
         s.push("Carol");
+
         // 2. dequeue one element
         System.out.println(s.pop());
+
         // 3. Add two more elements and then dequeue one
         s.push("David");
         s.push("Emily");
         System.out.println(s.pop());
+
         // 4. size and isEmpty
         System.out.println("Size: " + s.size() + " Empty: " + s.isEmpty());
+
         // 5. empty (works because I know that there are three elements left)
         s.pop();
         s.pop();
         s.pop();
+
         // 6. size and isEmpty
         System.out.println("Size: " + s.size() + " Empty: " + s.isEmpty());
     }
@@ -102,7 +110,7 @@ public class Main {
         System.out.print("\nSTART: ");
         stopwatch.getTime();
         System.out.println();
-        for(int i = 0; i < 100000; i++){
+        for (int i = 0; i < 100000; i++) {
             s.push(i);
         }
         System.out.print("END: ");
@@ -112,7 +120,7 @@ public class Main {
         stopwatch.reset();
 
         //eliminate 50000 elements for the next test
-        for (int i = 0; i < 50000; i++){
+        for (int i = 0; i < 50000; i++) {
             s.pop();
         }
 
@@ -122,7 +130,7 @@ public class Main {
         System.out.print("\nSTART: ");
         stopwatch.getTime();
         System.out.println();
-        for(int i = 0; i < 50000; i++){
+        for (int i = 0; i < 50000; i++) {
             s.pop();
         }
         System.out.print("END: ");
@@ -132,7 +140,7 @@ public class Main {
         stopwatch.reset();
 
         //append 50000 elements for the next test
-        for (int i = 0; i < 50000; i++){
+        for (int i = 0; i < 50000; i++) {
             s.push(i);
         }
 
@@ -142,7 +150,7 @@ public class Main {
         System.out.print("\nSTART: ");
         stopwatch.getTime();
         System.out.println();
-        for(int i = 0; i < 50000; i++){
+        for (int i = 0; i < 50000; i++) {
             s.push(i);
         }
         System.out.print("END: ");
@@ -158,7 +166,7 @@ public class Main {
         System.out.print("\nSTART: ");
         stopwatch.getTime();
         System.out.println();
-        for(int i = 0; i < 100000; i++){
+        for (int i = 0; i < 100000; i++) {
             s.pop();
         }
         System.out.print("END: ");
@@ -167,7 +175,7 @@ public class Main {
         stopwatch.stop();
         stopwatch.reset();
 
-
-        System.out.println("Is Empty: "+s.isEmpty());
+        //See if the stack is empty
+        System.out.println("Is Empty: " + s.isEmpty());
     }
 }
