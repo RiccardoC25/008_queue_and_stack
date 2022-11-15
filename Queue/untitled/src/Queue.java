@@ -1,6 +1,7 @@
 public class Queue implements IQueue {
-    Object[] queue = new Object[0];
+    Object[] queue = new Object[10];
     int cont = 0;
+    int begin = 1;
     boolean isEnqueued = false;
 
     private void copyQueue(Object[] sup) {
@@ -9,8 +10,9 @@ public class Queue implements IQueue {
                 sup[i] = queue[i];
             }
         } else {
-            for (int i = 0; i < cont - 1; i++) {
-                sup[i] = queue[i];
+            for (int i = 0; i < cont; i++) {
+                sup[i] = queue[begin];
+                begin++;
             }
         }
     }
@@ -22,10 +24,14 @@ public class Queue implements IQueue {
     @Override
     public void enqueue(Object o) {
         isEnqueued = true;
-        Object[] sup = new Object[cont + 1];
-        copyQueue(sup);
-        sup[cont] = o;
-        queue = sup;
+        if(cont >= queue.length -1) {
+            Object[] sup = new Object[cont * 2];
+            copyQueue(sup);
+            sup[cont] = o;
+            queue = sup;
+        } else {
+            queue[cont] = o;
+        }
         cont++;
     }
 
@@ -33,16 +39,23 @@ public class Queue implements IQueue {
     public Object dequeue() {
         if(cont!=0){
             isEnqueued = false;
-            Object o=queue[0];
-            Object[] sup = new Object[cont - 1];
-            copyQueue(sup);
-            queue=sup;
+            Object o = queue[begin-1];
+            if (cont <= (queue.length/3*2)) {
+                Object[] sup = new Object[cont];
+                copyQueue(sup);
+                begin = 1;
+                queue = sup;
+            } else {
+                queue[begin-1] = null;
+                begin++;
+            }
             cont--;
             return o;
         }else{
             return null;
         }
     }
+
 
     @Override
     public Object front() {
