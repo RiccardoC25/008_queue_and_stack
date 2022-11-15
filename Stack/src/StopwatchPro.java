@@ -78,7 +78,13 @@ public class StopwatchPro extends Stopwatch implements IStopwatchPro{
         long minutes = (millis / 60000) % 60;
         long hours = (millis / 3600000) % 24;
 
-        System.out.println(hours + ":" + minutes + ":" + seconds + "." + ((millis) - ((millis / 1000) * 1000)));
+        if(((millis) - ((millis / 1000) * 1000)) < 10){
+            System.out.println(hours + ":" + minutes + ":" + seconds + ".00" + ((millis) - ((millis / 1000) * 1000)));
+        }else if(((millis) - ((millis / 1000) * 1000)) < 100){
+            System.out.println(hours + ":" + minutes + ":" + seconds + ".0" + ((millis) - ((millis / 1000) * 1000)));
+        }else{
+            System.out.println(hours + ":" + minutes + ":" + seconds + "." + ((millis) - ((millis / 1000) * 1000)));
+        }
     }
 
     public void delete(int pos) {
