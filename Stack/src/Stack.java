@@ -1,5 +1,5 @@
 public class Stack implements IStack{
-    Object[] stack = new Object[0]; // initialization of the stack
+    Object[] stack = new Object[10]; // initialization of the stack
     int cont = 0; // counter for the elements of the stack
     boolean isPush; // true if the user calls push() method false if calls pop() method
 
@@ -14,17 +14,20 @@ public class Stack implements IStack{
                 sup[i] = stack[i];
             }
         }
-
     }
 
     //push is the method that allows to add elements into the stack
     @Override
     public void push(Object o) {
         isPush = true;
-        Object[] sup = new Object[cont+1];
-        copyArray(sup);
-        sup[cont] = o;
-        stack = sup;
+        if(cont >= stack.length-1) {
+            Object[] sup = new Object[cont*2];
+            copyArray(sup);
+            sup[cont] = o;
+            stack = sup;
+        }else{
+            stack[cont] = o;
+        }
         cont++;
     }
 
@@ -39,9 +42,13 @@ public class Stack implements IStack{
         if(cont != 0){
             isPush = false;
             Object o = stack[cont-1];
-            Object[] sup = new Object[cont-1];
-            copyArray(sup);
-            stack = sup;
+            if(cont <= (stack.length/3*2)) {
+                Object[] sup = new Object[cont];
+                copyArray(sup);
+                stack = sup;
+            }else{
+                stack[cont-1] = null;
+            }
             cont--;
             return o;
         }else{

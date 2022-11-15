@@ -11,7 +11,7 @@ public class Main {
         //exampleStack(s);
         //tryMethods(s);
         //tryVoid(s);
-        //performanceTest(s, stopwatch);
+        performanceTest(s, stopwatch);
     }
 
     private static void exampleStack(Stack s) { // base example
